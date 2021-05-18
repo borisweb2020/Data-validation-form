@@ -220,10 +220,11 @@ function init(){
         event.preventDefault();
 
         localStorage.setItem('form', JSON.stringify(formValidate));
+        $form.classList.add('jump');
 
         setTimeout(() => {
             window.location.pathname = 'result.html';
-        }, 500);
+        }, 1000);
     });
 }
 

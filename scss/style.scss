@@ -67,6 +67,26 @@ input, select, textarea{
 	transition: background-color .2s ease-in-out;
 }
 
+@keyframes appearElement{
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes disappearElement{
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
+	}
+}
+
 @import 'background.scss';
 @import 'form.scss';
 @import 'result.scss';

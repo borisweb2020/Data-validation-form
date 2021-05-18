@@ -3,7 +3,13 @@
 	max-width: 65rem;
 	padding: 5rem 8rem;
 
+	animation: appearElement 1s ease-out;
+
 	@extend %background-block;
+
+	&.jump{
+		animation: disappearElement 1s linear forwards;
+	}
 
 	&__title{
 		margin-bottom: 2em;
@@ -99,3 +105,4 @@
 		opacity: .5;
 	}
 }
+
