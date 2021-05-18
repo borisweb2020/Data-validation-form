@@ -1,0 +1,101 @@
+.form{
+	width: 100%;
+	max-width: 65rem;
+	padding: 5rem 8rem;
+
+	@extend %background-block;
+
+	&__title{
+		margin-bottom: 2em;
+	}
+
+	&__wrapper{
+        position: relative;
+		margin-bottom: 4rem;
+    }
+
+	&__input{
+		display: block;
+		width: 100%;
+		padding: .4rem;
+
+		border: none;
+		background: none;
+		border-bottom: 2px solid #cccccc;
+
+		&:focus{
+			border-bottom: 2px solid #fff;
+		}
+
+	}
+
+	&__input::placeholder{
+		color: #cccccc;
+	}
+
+	&__error{
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 1;
+
+		width: 100%;
+
+		font-size: 1.5rem;
+		line-height: 1;
+		text-align: left;
+		color: #ff0036;
+	}
+
+    &__input[type = date]::-webkit-calendar-picker-indicator{
+        background-color: #cccccc;
+    }
+
+    &__input[type = date]::-webkit-datetime-edit-text{
+        color: transparent;
+    }
+
+    &__input[type = date]::-webkit-datetime-edit-month-field,
+    &__input[type = date]::-webkit-datetime-edit-day-field,
+    &__input[type = date]::-webkit-datetime-edit-year-field{
+        color: transparent;
+    }
+
+    &__input[type = date]:focus::-webkit-datetime-edit-text{
+        color: #cccccc;
+    }
+
+    &__input[type = date]:focus::-webkit-datetime-edit-month-field,
+    &__input[type = date]:focus::-webkit-datetime-edit-day-field,
+    &__input[type = date]:focus::-webkit-datetime-edit-year-field{
+        color: #cccccc;
+    }
+
+    &__wrapper > label{
+        color: #cccccc;
+
+        position: absolute;
+        top: 50%;
+        left: .4rem;
+        transform: translateY(-50%);
+    }
+
+    &__input[type = date]:focus ~ label{
+        color: transparent;
+        z-index: -1;
+    }
+
+	&__button{
+		@extend %button;
+		font-size: 1.8rem;
+		background-color: #f57f17;
+	}
+
+	&__button:hover{
+		background-color: lighten(#f57f17, 10%);
+	}
+
+	&__button:disabled{
+		opacity: .5;
+	}
+}

@@ -1,0 +1,11 @@
+.background{
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background: url('../images/background.jpg') center no-repeat;
+	background-size: cover;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

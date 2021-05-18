@@ -1,0 +1,32 @@
+@media(max-width: 425.98px){
+    body{
+        font-size: 1.2rem;
+    }
+
+    .title{
+        font-size: 2rem;
+    }
+
+    .form{
+        max-width: 32rem;
+        padding: 3rem 4rem;
+
+        &__wrapper{
+            margin-bottom: 3rem;
+        }
+
+        &__button{
+            font-size: 1.4rem;
+        }
+    }
+
+    .result{
+        max-width: 32rem;
+        padding: 3rem 1rem;
+        font-size: 1.2rem;
+
+        &__title{
+            margin-bottom: 1em;
+        }
+    }
+}
