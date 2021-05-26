@@ -146,23 +146,48 @@ formValidate.checkConfirmedPassword = function(){
 formValidate.checkAge = function(){
     updateWrapper('date');
 
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const birthYear   = this.date.slice(0, 4);
+    const currentDate  = new Date();
+    const currentYear  = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const currentDay   = currentDate.getDate();
+    const birthYear    = this.date.slice(0, 4);
+    const birthMonth   = this.date.slice(5, 7) - 1;
+    const birthDay     = this.date.slice(8, 10);
 
-    let diff = currentYear - birthYear;
+    let diffYear  = currentYear - birthYear;
+    let diffMonth = currentMonth - birthMonth;
+    let diffDay   = currentDay - birthDay;
 
-    if(diff < 18){
-        chooseObject('date', 'wrap').insertBefore(createElement('div', 'form__error', 'Не старше 18 лет'), $label);
+    const insertError = text =>{
+        return chooseObject('date', 'wrap').insertBefore(createElement('div', 'form__error', text), $label);
+    }
+
+    if(diffYear < 18){
+        insertError('Не младше 18 лет');
         chooseObject('date').required = true;
     } else if(this.date === ''){
-        chooseObject('date', 'wrap').insertBefore(createElement('div', 'form__error', 'Поле должно быть заполнено'), $label);
+        insertError('Поле должно быть заполнено');
         chooseObject('date').required = true;
+    } else if(diffYear === 18){
+        if(diffMonth < 0){
+            insertError('Не младше 18 лет');
+            chooseObject('date').required = true;
+        } else if(diffMonth === 0){
+            if(diffDay < 0){
+                insertError('Не младше 18 лет');
+                chooseObject('date').required = true;
+            } else {
+                chooseObject('date').required = false;
+            }
+        } else {
+            chooseObject('date').required = false;
+        }
+
     } else {
         chooseObject('date').required = false;
     }
-
 }
+
 
 
 
@@ -228,7 +253,7 @@ function init(){
     });
 }
 
-init();
+document.addEventListener('DOMContentLoaded', init);
 
 
 
